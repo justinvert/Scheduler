@@ -6,10 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
     <title>Scheduler</title>
 </head>
 <body>
+    <style>.table-borderless td,
+            .table-borderless th {
+                border: 0;
+               
+            }
+            </style>
         <div class="container">
                 <div class="jumbotron">
                     <h1>Schedule Data</h1>
@@ -22,7 +28,7 @@
                         <div class="card-body">
                             
                         
-                                    <table class="table">
+                                    <table class="table table-borderless table-condensed table-hover">
                                         <thead>
                                     
                                             <th scope="col">Service Name</th>
@@ -32,7 +38,14 @@
                                             <th scope="col">Minutes Away</th>
                                    
                                         </thead>
-                
+                                        <tbody>
+                                                <tr>
+                                                    <td id ="name-display"></td>
+                                                    <td id ="destination-display"></td>
+                                                    <td id="frequency-display"></td>
+                                                    <td id="time-display"></td>
+                                                    <!-- <td id="minsaway-display"></td> -->
+                                                </tr>
                                      
                                     </table>
                                 </div>
@@ -69,12 +82,31 @@
                                 </div>
                                 </div>
                             </br>
-    <script src="text/javascript">
-    // Initialize Firebase
-  var config = {
-   
+    <script type="text/javascript">
+ // Initialize Firebase
   };
   firebase.initializeApp(config);
-    
+  var dataRef = firebase.database();
+  $("#submitbutton").on("click", function(e){
+    event.preventDefault();
+    var name = "";
+    var destination = "";
+    var time = "";
+    var frequency = 0;
+name = $("#name").val();
+destination = $("#destination").val();
+time = $("#time").val();
+frequency = $("#frequency").val();
+$("#name-display").text(name);
+$("#destination-display").text(destination);
+$("#time-display").text(time);
+$("#frequency-display").text(frequency);
+dataRef.ref().push({
+    name: name,
+    destination: destination,
+   time: time,
+    frequency: frequency
+});
+});
     </script>
 </html>
