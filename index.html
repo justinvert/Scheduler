@@ -17,7 +17,7 @@
 
                     <div class="card">
                             <div class="card-header bg-primary mb-3 text-white">
-                         <h5 class="card-title" style="margin-bottom:-3px;">Schedule Information</h1>
+                         <h5 class="card-title" style="margin-bottom:-3px;">Schedule Information</h5>
                             </div>
                         <div class="card-body">
                             
@@ -36,8 +36,45 @@
                                      
                                     </table>
                                 </div>
-
+                            </div>
+                        </br>
+             <div class="card">
+                   <div class="card-header bg-primary mb-3 text-white">
+                        <h5 class="card-title" style="margin-bottom:-3px;">Add Service</h5>
+                         </div>
+             <div class="card-body">
+                    <form>
+                <div class="form-group">
+                    <label>Service Name</label>
+    <input type="text" class="form-control" id="name"  placeholder="Amtrak">
+</div>
+              <div class="form-group">
+                    <label>Destination</label>
+    <input type="text" class="form-control" id="destination" placeholder="i.e. Philadelphia">
+</div>
+             <div class="form-group">
+                    <label>First Service Time (HH:mm - Military Time)</label>
+    <input type="text" class="form-control" id="time"  placeholder="12:10">
+                                                        
+</div>
+            <div class="form-group">
+                    <label>Frequency (min)</label>
+    <input type="text" class="form-control" id="frequency"  placeholder="20">
+</div>
                     
+<button type="submit" class="btn-primary" id="submitbutton">Submit</button>
+        </form>
+         </div>
+                                    </div>
                                 </div>
-    <script src="text/javascript"></script>
+                                </div>
+                            </br>
+    <script src="text/javascript">
+    // Initialize Firebase
+  var config = {
+   
+  };
+  firebase.initializeApp(config);
+    
+    </script>
 </html>
