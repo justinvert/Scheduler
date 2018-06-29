@@ -1,3 +1,5 @@
+firebase.initializeApp(config);
+
 var dataRef = firebase.database();
   var timeUntil = moment();
   console.log(moment(timeUntil).format("hh:mm"));
